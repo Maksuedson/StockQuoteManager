@@ -16,26 +16,26 @@ public class StockQuota {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 	private Stock stock;
 	
 	public StockQuota() {		
 	}	
 	
-	public StockQuota(Stock stock, List<Quota> quotas) {
+	public StockQuota(Stock stock, List<Quota> quotes) {
 		this.stock = stock;
-		this.quotas = quotas;
+		this.quotes = quotes;
 	}
 
 	@OneToMany
 	(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Quota>quotas = new ArrayList<Quota>();
+	private List<Quota>quotes = new ArrayList<Quota>();
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -47,8 +47,8 @@ public class StockQuota {
 		this.stock = stock;
 	}
 
-	public List<Quota> getQuotas() {
-		return quotas;
+	public List<Quota> getQuotes() {
+		return quotes;
 	}
 	
 }
